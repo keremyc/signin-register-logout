@@ -3,6 +3,7 @@ package com.example.loginregistrationlogout.appUser;
 import com.example.loginregistrationlogout.registration.token.ConfirmationToken;
 import com.example.loginregistrationlogout.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.hibernate.Session;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -51,5 +52,13 @@ public class AppUserService implements UserDetailsService {
         confirmationTokenService.saveConfirmationToken(confirmationToken);
 
         return token;
+    }
+
+    public int enableAppUser(String email){
+        return appUserRepository.enableAppUser(email);
+    }
+
+    public void deleteUser(AppUser appUser) {
+        appUserRepository.delete(appUser);
     }
 }

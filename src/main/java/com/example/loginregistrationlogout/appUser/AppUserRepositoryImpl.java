@@ -39,4 +39,21 @@ public class AppUserRepositoryImpl implements AppUserRepository {
         return (long) session.save(appUser);
     }
 
+    @Override
+    public int enableAppUser(String email) {
+        Session session = sessionFactory.getCurrentSession();
+
+        return session.createQuery(
+                     "UPDATE AppUser " +
+                        "SET enabled = TRUE " +
+                        "WHERE email = :email")
+                .setParameter("email", email)
+                .executeUpdate();
+    }
+
+    public void delete(AppUser appUser) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(appUser);
+    }
+
 }

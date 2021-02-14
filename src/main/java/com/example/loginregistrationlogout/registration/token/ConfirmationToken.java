@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Setter
+@Getter
 @NoArgsConstructor
 public class ConfirmationToken {
 
