@@ -27,6 +27,6 @@ public class RegistrationService {
                         AppUserRole.USER
                 )
         );
-
     }
+
 }
